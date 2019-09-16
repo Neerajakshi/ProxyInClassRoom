@@ -1,0 +1,103 @@
+import java.io.BufferedReader;
+import static java.util.stream.Collectors.toList;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
+
+import java.util.List;
+
+public class ClassRoom {
+
+	public static void main(String[] args) {
+		
+		 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String inputs;
+		try{
+			inputs = br.readLine();
+		// Reading input from STDIN
+		Integer num = Integer.parseInt(inputs);
+		inputs = br.readLine();
+        String arr[] = inputs.split(" ");
+        List<Integer> arrint = new ArrayList<Integer>();
+        
+        for(int i=0;i<arr.length;i++){
+        	arrint.add(Integer.parseInt(arr[i]));
+        	
+        	 
+        }
+        
+       // int j=1;
+        ArrayList finalArr = new ArrayList();
+        ArrayList tempArry = new ArrayList();
+       // Collections.sort(arrint);
+        for(int i = 0; i < arrint.size(); i++) {
+            for(int j1 = i; j1 < arrint.size(); j1++) 
+            {
+            if(arrint.get(i) == arrint.get(j1)) 
+            	tempArry.add(arrint.get(i)); 
+            	break;
+            }
+        }
+        
+       // System.out.println(tempArry);
+        
+        for(int i = 0; i < arrint.size(); i++) {
+        	for(int j=0;j<tempArry.size();j++){
+        	if(arrint.get(i)==tempArry.get(j)){
+        		finalArr.add(i+1);
+        		break;
+        		}
+        	}
+        }
+        
+        
+        
+       // System.out.println(finalArr);
+        
+        
+        for(int i = 0; i < finalArr.size(); i++) {
+        	for(int j=0;j<tempArry.size();j++){
+        	if(finalArr.contains(tempArry.get(j))){
+        		finalArr.remove(tempArry.get(j));
+        	}
+        	}
+        	
+        }
+        for(int i = 0; i < finalArr.size(); i++) {
+        	 System.out.print(finalArr.get(i));
+        	 if(i != finalArr.size()-1){
+        		 System.out.print(" ");
+        	 }else
+        		 System.out.println();
+        }
+        
+       // System.out.println(finalArr);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+  }
